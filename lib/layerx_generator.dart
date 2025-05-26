@@ -18,7 +18,7 @@
 /// Add `layerx_generator` as a dev dependency in your `pubspec.yaml`:
 /// ```yaml
 /// dev_dependencies:
-///   layerx_generator: ^1.1.11
+///   layerx_generator: ^1.1.12
 /// ```
 /// Run:
 /// ```bash
@@ -142,7 +142,7 @@ class LayerXGenerator {
       await _createRepositoryFiles(appDir.path);
       await _createAppWidgetFile(projectPath);
       await _updateMainFile(projectPath);
-      await _updatePubspecFile(projectPath);
+      // await _updatePubspecFile(projectPath);
     } catch (e) {
       print('Error generating LayerX structure: $e');
       rethrow;
@@ -397,8 +397,7 @@ abstract class AppUrls {
 }
 ''');
 
-    await File(path.join(configDir.path, 'app_text_style.dart'))
-        .writeAsString('''
+    await File(path.join(configDir.path, 'app_text_style.dart')).writeAsString('''
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -654,8 +653,7 @@ abstract class AppTextStyles {
 }
 ''');
 
-    await File(path.join(configDir.path, 'padding_extensions.dart'))
-        .writeAsString('''
+    await File(path.join(configDir.path, 'padding_extensions.dart')).writeAsString('''
 import 'package:flutter/material.dart';
 
 /// Adds padding extensions for widgets in the LayerX app.
@@ -870,13 +868,11 @@ class AppConfig {
   }
 
   Future<void> _createModelFiles(String appDirPath) async {
-    final bodyModelDir =
-        Directory(path.join(appDirPath, 'mvvm', 'model', 'body_model'));
+    final bodyModelDir = Directory(path.join(appDirPath, 'mvvm', 'model', 'body_model'));
     final apiResponseModelDir =
         Directory(path.join(appDirPath, 'mvvm', 'model', 'api_response_model'));
 
-    await File(path.join(bodyModelDir.path, 'driver_signup_body_model.dart'))
-        .writeAsString('''
+    await File(path.join(bodyModelDir.path, 'driver_signup_body_model.dart')).writeAsString('''
 /// Model for driver signup data with multipart support.
 class DriverSignupBodyModel {
   String? name;
@@ -894,8 +890,7 @@ class DriverSignupBodyModel {
 }
 ''');
 
-    await File(path.join(bodyModelDir.path, 'garage_signup_body_model.dart'))
-        .writeAsString('''
+    await File(path.join(bodyModelDir.path, 'garage_signup_body_model.dart')).writeAsString('''
 /// Model for garage signup data with multipart support.
 class GarageSignupBodyModel {
   String? name;
@@ -909,8 +904,7 @@ class GarageSignupBodyModel {
 }
 ''');
 
-    await File(path.join(bodyModelDir.path, 'buyCar_request_model.dart'))
-        .writeAsString('''
+    await File(path.join(bodyModelDir.path, 'buyCar_request_model.dart')).writeAsString('''
 /// Model for garage signup data with multipart support.
 class BuyCarRequestModel {
   String? name;
@@ -924,8 +918,7 @@ class BuyCarRequestModel {
 }
 ''');
 
-    await File(path.join(bodyModelDir.path, 'add_car_body_model.dart'))
-        .writeAsString('''
+    await File(path.join(bodyModelDir.path, 'add_car_body_model.dart')).writeAsString('''
 /// Model for adding car data with multipart support.
 class AddCarBodyModel {
   String? model;
@@ -950,8 +943,7 @@ class AddCarBodyModel {
 }
 ''');
 
-    await File(path.join(apiResponseModelDir.path, 'api_response.dart'))
-        .writeAsString('''
+    await File(path.join(apiResponseModelDir.path, 'api_response.dart')).writeAsString('''
 /// Generic API response model for flexible data parsing.
 class ApiResponse<T> {
   final bool? success;
@@ -1020,8 +1012,7 @@ class ApiResponse<T> {
   Future<void> _createServiceFiles(String appDirPath) async {
     final servicesDir = Directory(path.join(appDirPath, 'services'));
 
-    await File(path.join(servicesDir.path, 'https_calls.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'https_calls.dart')).writeAsString('''
 import 'dart:async';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -1251,8 +1242,7 @@ class HttpsCalls {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'shared_preferences_service.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'shared_preferences_service.dart')).writeAsString('''
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'logger_service.dart';
@@ -1321,8 +1311,7 @@ class SharedPreferencesService {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'json_extractor.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'json_extractor.dart')).writeAsString('''
 import 'dart:convert';
 import '../config/global_variables.dart';
 import 'logger_service.dart';
@@ -1350,8 +1339,7 @@ class MessageExtractor {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'global_variables.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'global_variables.dart')).writeAsString('''
 import 'app_enums.dart';
 
 /// Global variables for the LayerX app.
@@ -1362,8 +1350,7 @@ class GlobalVariables {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'location_service.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'location_service.dart')).writeAsString('''
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'logger_service.dart';
@@ -1415,8 +1402,7 @@ class LocationService {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'api_response_handler.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'api_response_handler.dart')).writeAsString('''
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -1494,8 +1480,7 @@ class ApiResponseHandler {
 }
 ''');
 
-    await File(path.join(servicesDir.path, 'logger_service.dart'))
-        .writeAsString('''
+    await File(path.join(servicesDir.path, 'logger_service.dart')).writeAsString('''
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
@@ -1593,12 +1578,10 @@ class LoggerService {
   }
 
   Future<void> _createRepositoryFiles(String appDirPath) async {
-    final authRepoDir =
-        Directory(path.join(appDirPath, 'repository', 'auth_repo'));
+    final authRepoDir = Directory(path.join(appDirPath, 'repository', 'auth_repo'));
     final apiRepoDir = Directory(path.join(appDirPath, 'repository', 'apis'));
 
-    await File(path.join(authRepoDir.path, 'auth_repository.dart'))
-        .writeAsString('''
+    await File(path.join(authRepoDir.path, 'auth_repository.dart')).writeAsString('''
 import 'package:http/http.dart' as http;
 import '../../config/app_urls.dart';
 import '../../mvvm/model/api_response_model/api_response.dart';
@@ -1656,8 +1639,7 @@ class AuthRepository {
 }
 ''');
 
-    await File(path.join(apiRepoDir.path, 'data_repository.dart'))
-        .writeAsString('''
+    await File(path.join(apiRepoDir.path, 'data_repository.dart')).writeAsString('''
 import 'package:http/http.dart' as http;
 import '../../config/app_urls.dart';
 import '../../mvvm/model/api_response_model/api_response.dart';
@@ -1754,38 +1736,38 @@ void main() {
     print('Updated main.dart');
   }
 
-  Future<void> _updatePubspecFile(String projectPath) async {
-    final pubspecFile = File(path.join(projectPath, 'pubspec.yaml'));
-    await pubspecFile.writeAsString('''
-name: layerx_app
-description: A Flutter project with LayerX architecture.
-version: 1.0.0+1
-
-environment:
-  sdk: '>=3.0.0 <4.0.0'
-
-dependencies:
-  flutter:
-    sdk: flutter
-  get: ^4.6.6
-  http: ^1.2.2
-  shared_preferences: ^2.3.0
-  logger: ^2.4.0
-  flutter_screenutil: ^5.9.3
-  geolocator: ^13.0.1
-  permission_handler: ^11.3.3
-  intl: ^0.19.0
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  lints: ^5.0.0
-  build_runner: ^2.4.13
-
-flutter:
-  uses-material-design: true
-''');
-
-    print('Updated pubspec.yaml');
-  }
+//   Future<void> _updatePubspecFile(String projectPath) async {
+//     final pubspecFile = File(path.join(projectPath, 'pubspec.yaml'));
+//     await pubspecFile.writeAsString('''
+// name: layerx_app
+// description: A Flutter project with LayerX architecture.
+// version: 1.0.0+1
+//
+// environment:
+//   sdk: '>=3.0.0 <4.0.0'
+//
+// dependencies:
+//   flutter:
+//     sdk: flutter
+//   get: ^4.6.6
+//   http: ^1.2.2
+//   shared_preferences: ^2.3.0
+//   logger: ^2.4.0
+//   flutter_screenutil: ^5.9.3
+//   geolocator: ^13.0.1
+//   permission_handler: ^11.3.3
+//   intl: ^0.19.0
+//
+// dev_dependencies:
+//   flutter_test:
+//     sdk: flutter
+//   lints: ^5.0.0
+//   build_runner: ^2.4.13
+//
+// flutter:
+//   uses-material-design: true
+// ''');
+//
+//     print('Updated pubspec.yaml');
+//   }
 }

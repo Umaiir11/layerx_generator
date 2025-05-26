@@ -20,7 +20,7 @@ Add the package to your project by updating `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  layerx_generator: ^1.1.11
+  layerx_generator: ^1.1.12
 ```
 
 Run:
@@ -180,6 +180,10 @@ dev_dependencies:
 
 ## Changelog
 
+
+### v1.1.12
+- Removed automatic pubspec.yaml modification to prevent overwriting project configurations.
+- Users must now manually add required dependencies to pubspec.yaml.
 ### v0.0.2
 - Added CLI and programmatic support.
 - Improved MVVM structure.
