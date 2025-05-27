@@ -20,7 +20,7 @@ Add the package to your project by updating `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  layerx_generator: ^1.1.12
+  layerx_generator: ^2.0.0
 ```
 
 Run:
@@ -68,6 +68,8 @@ dependencies:
   http: ^1.1.0
   shared_preferences: ^2.2.0
   logger: ^2.0.0
+  google_fonts: ^6.2.1
+  intl: ^0.20.2
 ```
 
 Then run:
@@ -181,7 +183,7 @@ dev_dependencies:
 ## Changelog
 
 
-### v1.1.12
+### v2.0.0
 - Removed automatic pubspec.yaml modification to prevent overwriting project configurations.
 - Users must now manually add required dependencies to pubspec.yaml.
 ### v0.0.2

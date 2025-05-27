@@ -5,6 +5,35 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) an
 
 ---
 
+## [2.0.0] - 2025-05-27
+
+### Added
+- New modular architecture for enhanced customization of generated structures.
+- Support for generating unit test templates for services and repositories.
+- Added `ThemeGenerator` for customizable theme configurations.
+
+### Changed
+- **Breaking**: Refactored core generator logic to support plugin-based extensions, requiring updates to existing usage.
+- Upgraded dependencies to latest versions for improved performance and compatibility:
+  - `get: ^4.6.6`
+  - `flutter_screenutil: ^5.9.0`
+  - `http: ^1.1.0`
+  - `logger: ^2.0.0`
+- Improved error reporting with detailed diagnostics in `LoggerService`.
+
+### Removed
+- Deprecated `directory_generator` logic in favor of new modular approach.
+
+---
+
+## [1.1.12] - 2025-05-27
+
+### Changed
+- Removed automatic `pubspec.yaml` modification to prevent overwriting project configurations.
+- Users must now manually add required dependencies to `pubspec.yaml`.
+
+---
+
 ## [1.1.6] - 2025-04-29
 
 ### Added
@@ -12,22 +41,22 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) an
 - `ApiResponseHandler` for unified API response processing with `GetX` support.
 - `LoggerService` for consistent and clean log management across all services.
 - New body models:
-    - `DriverSignupBodyModel`
-    - `GarageSignupBodyModel`
-    - `AddCarBodyModel`
-    - `BuyCarRequestModel`
+  - `DriverSignupBodyModel`
+  - `GarageSignupBodyModel`
+  - `AddCarBodyModel`
+  - `BuyCarRequestModel`
 - Generic `ApiResponse<T>` model for flexible and type-safe API data handling.
 
 ### Changed
 - Enhanced `HttpsCalls` for advanced `MultipartRequest` handling across:
-    - Driver/Garage profile uploads
-    - Car create/update/delete operations
-    - Car buying requests
+  - Driver/Garage profile uploads
+  - Car create/update/delete operations
+  - Car buying requests
 - Standardized repository implementation via `AuthRepository` and `DataRepository` using `ApiResponseHandler`.
 - Renamed `ApiUrls` to `AppUrls` for naming consistency.
 - Upgraded dependencies:
-    - `geolocator: ^10.0.0`
-    - `permission_handler: ^10.0.0`
+  - `geolocator: ^10.0.0`
+  - `permission_handler: ^10.0.0`
 - Improved generator logic with better documentation and scalability.
 
 ---
